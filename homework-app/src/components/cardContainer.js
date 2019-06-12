@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Card from './Card';
-import Pusheens from "./../pusheens.json"
+import Dogs from "./../dogs.json"
 import shuffle from "shuffle-array";
 
 class CardContainer extends Component {
@@ -8,61 +8,61 @@ class CardContainer extends Component {
     constructor(props) {
         super(props);
 
-        // setting the state: score is at 1, pusheens is pulling in the pusheen json, and we have no selected pusheens yet
+        
         this.state = {
             score: 1,
-            pusheens: Pusheens,
-            selectedPusheens: []
+            dogs: Dogs,
+            selectedDogs: []
         };
     }
 
     
-    // when the user clicks on a pusheen card
+    
     handleClick = (e) => {
 
-        // grab the selected pusheen's id
+       
         let id = e.target.id;
 
-        // init variable that sees if the user selects a pusheen that's already in selectedpusheens
+        
         let exists = false;
 
-        // loop through selected pusheens and see if any ids match selected id
-        this.state.selectedPusheens.forEach(pusheen => {
+        
+        this.state.selectedDogs.forEach(dog => {
 
-            // if id matches
-            if (pusheen.id == id) {
+            
+            if (dog.id === id) {
  
-                // change exists to true
+                
                 exists = true;
             }
         })
 
-        // if exists is true
+        
         if (exists) {
-            // end the game
+           
             this.endGame();
         }
 
-        // otherwise
+        
         else {
-            // loop through the pusheen json
-            this.state.pusheens.forEach(pusheen => {
-                // if the pusheen id matches the selected id
-                if (pusheen.id == id) {
-                    // add the pusheen to the selected pusheen array
-                    this.setState({selectedPusheens: [...this.state.selectedPusheens, pusheen]});
-                    console.log(this.state.selectedPusheens);
+           
+            this.state.dogs.forEach(dog => {
+                
+                if (dog.id === id) {
+                    
+                    this.setState({selectedDogs: [...this.state.selectedDogs, dog]});
+                    console.log(this.state.selectedDogs);
 
-                    // update the score
+                    
                     this.updateScore();
                 }
             })  
         }
         
 
-        // SHUFFLE THE PUSHEENS
-        this.setState({ pusheens: shuffle(this.state.pusheens)});
-        console.log("Shuffling Pusheens");
+        // SHUFFLE THE Dogs
+        this.setState({ dogs: shuffle(this.state.dogs)});
+        console.log("Shuffling Dogs");
 
     }
 
@@ -81,7 +81,7 @@ class CardContainer extends Component {
         // push the current game score as the new top score 
         this.props.updateTopScore(this.state.score);
         // set the score back to 1 and the selected array to empty 
-        this.setState({score: 1, selectedPusheens: []});
+        this.setState({score: 1, selectedDogs: []});
         // update the current score to 0
         this.props.updateCurrentScore(0);
     }
@@ -90,7 +90,7 @@ class CardContainer extends Component {
         return (
             <div className="container" id="card-container">
                 <div className="row">
-                    {Pusheens.map(pusheen => <Card src={pusheen.image} key={pusheen.id} id={pusheen.id} alt={pusheen.name} endGame={this.endGame} handleClick={this.handleClick} score={this.state.score} />)}
+                    {Dogs.map(dog => <Card src={dog.image} key={dog.id} id={dog.id} alt={dog.name} endGame={this.endGame} handleClick={this.handleClick} score={this.state.score} />)}
                 </div>
             </div>
         );
