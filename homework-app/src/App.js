@@ -32,6 +32,7 @@ class App extends Component {
         <Navbar score={this.state.count} top={this.state.topScore}/>
         <Header/>
         <CardContainer updateCurrentScore={this.updateCurrentScore} updateTopScore={this.updateTopScore}/>
+        {/* <img src={require('../src/img/1.jpg')}/> */}
       </div>
     );
   }

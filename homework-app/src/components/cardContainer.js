@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import Card from './Card';
-import Dogs from "./../dogs.json"
+import Dogs from "./../dogs"
+// import image from '../img/1.jpg';
 import shuffle from "shuffle-array";
 
 class CardContainer extends Component {
 
     constructor(props) {
         super(props);
-
         
         this.state = {
             score: 1,
@@ -87,10 +87,21 @@ class CardContainer extends Component {
     }
 
     render() {
+        console.log('here',Dogs)
         return (
             <div className="container" id="card-container">
                 <div className="row">
-                    {Dogs.map(dog => <Card src={dog.image} key={dog.id} id={dog.id} alt={dog.name} endGame={this.endGame} handleClick={this.handleClick} score={this.state.score} />)}
+                    {Dogs.map(dog => 
+                              <Card 
+                                src={dog.img} 
+                                key={dog.id} 
+                                id={dog.id} 
+                                alt={dog.name} 
+                                endGame={this.endGame} 
+                                handleClick={this.handleClick} 
+                                score={this.state.score} />               
+                    )}
+                       
                 </div>
             </div>
         );
