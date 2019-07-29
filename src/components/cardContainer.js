@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
-import Card from './Card';
-import Dogs from "./../dogs"
-// import image from '../img/1.jpg';
+import Card from './card';
+import Dogs from "../dogs"
 import shuffle from "shuffle-array";
 
 class CardContainer extends Component {
 
     constructor(props) {
         super(props);
-        
         this.state = {
             score: 1,
             dogs: Dogs,
@@ -16,50 +14,25 @@ class CardContainer extends Component {
         };
     }
 
-    
-    
     handleClick = (e) => {
-
-       
         let id = e.target.id;
-
-        
         let exists = false;
-
-        
         this.state.selectedDogs.forEach(dog => {
-
-            
             if (dog.id === id) {
- 
-                
                 exists = true;
             }
         })
-
-        
-        if (exists) {
-           
+        if (exists) { 
             this.endGame();
-        }
-
-        
-        else {
-           
-            this.state.dogs.forEach(dog => {
-                
+        } else {  
+            this.state.dogs.forEach(dog => {  
                 if (dog.id === id) {
-                    
                     this.setState({selectedDogs: [...this.state.selectedDogs, dog]});
                     console.log(this.state.selectedDogs);
-
-                    
                     this.updateScore();
                 }
             })  
         }
-        
-
         // SHUFFLE THE Dogs
         this.setState({ dogs: shuffle(this.state.dogs)});
         console.log("Shuffling Dogs");
