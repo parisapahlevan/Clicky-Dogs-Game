@@ -6,29 +6,53 @@
   padding-top: 120px;
   padding-bottom: 60px;
   max-width: 100%;
-  background-color: rgba(247, 102, 6, 0.678);
+  background-color: #c38a8a;
+  padding-bottom: 0;
 }
 
 #counters {
-  color: white;
+  color: #c38a8a;
+  
 }
 
 #card-container {
-  margin-top: 120px;
+  margin-top: 50px;
+
 }
 
 .card {
   width: 200px;
+  background-color:rgb(238,169,144);
 }
 
 #logo {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Indie Flower', cursive;
 }
-
 .subtitle, #counters {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  font-size: 30px;
+}
+.card-img-top{
+  height: 200px;
+    border: 3px solid #eea990;
+    border-radius: 4px;
+    /* padding: 5px; */
+    width: 200px;
 }
 
-.card-img-top{
-  height: 239px;
+body{
+  background-color: rgb(195,138,138);
+}
+
+h3 {
+  color:rgb(195,138,138);
+}
+
+#navi{
+  background-color: rgb(105,61,61);
+}
+
+h1{
+  font-weight: bold;
 }
