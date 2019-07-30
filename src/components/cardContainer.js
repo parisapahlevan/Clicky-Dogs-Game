@@ -15,13 +15,8 @@ class CardContainer extends Component {
     }
 
     handleClick = (e) => {
-        let id = e.target.id;
-        let exists = false;
-        this.state.selectedDogs.forEach(dog => {
-            if (dog.id === id) {
-                exists = true;
-            }
-        })
+        let id = parseInt(e.target.id, 10);   
+        var exists  = this.state.selectedDogs.find( selectedDog => selectedDog.id === id );
         if (exists) { 
             this.endGame();
         } else {  
