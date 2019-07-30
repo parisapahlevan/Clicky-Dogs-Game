@@ -1,27 +1,19 @@
-import React from 'react';
-// import image from '../img/1.jpg';
-// const Card = props => (
-//     <div className="col-md-3">
-//         <div className="card mb-5">
-//             <img className="card-img-top" src={props.src} alt={props.alt} onClick={props.handleClick} id={props.id}/>
-//         </div>
-//     </div>
-// )
+import React, {Component} from 'react';
 
-const Card = props => {
-    console.log(props)
-    return (
-        <div className="col-md-3">
-            <div className="card mb-5">
-                <img 
-                    className="card-img-top" 
-                    src={props.src} 
-                    alt={props.alt} 
-                    onClick={props.handleClick} 
-                    id={props.id} />
+class Card extends Component {
+    render() {
+        return (
+            <div className="col-md-3">
+                <div className="card mb-5">
+                    <img 
+                        className="card-img-top" 
+                        src={this.props.src} 
+                        alt={this.props.alt} 
+                        onClick={this.props.handleClick} 
+                        id={this.props.id} />
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
-
 export default Card;

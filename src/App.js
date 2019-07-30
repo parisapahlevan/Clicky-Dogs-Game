@@ -3,25 +3,20 @@ import './App.css';
 import Navbar from "./components/navbar";
 import Header from "./components/header";
 import CardContainer  from "./components/cardContainer";
+import { Container, Row, Col } from 'react-bootstrap';
 
 class App extends Component {
-  // setting the state
   state = {
     count: 0,
     topScore: 0
   }
 
-  // update the current score count in the nav
   updateCurrentScore = (newCount) => {
-    // set the new count as the count
     this.setState({count: newCount});
   }
 
-  // update the top score in the nav
   updateTopScore = (newTop) => {
-    // if the new top score is higher than the current
     if (newTop > this.state.topScore) {
-      // then set the state but you have to subtract 1
       this.setState({topScore: newTop - 1})
     }
   }
@@ -29,10 +24,20 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Container>
+          <Row>
+            <Col>1 of 2acassadf</Col>
+            <Col>2 of 2asdfasdfsa</Col>
+          </Row>
+          <Row>
+            <Col>1 of 3dddd</Col>
+            <Col>2 of 3fff</Col>
+            <Col>3 of 3ggggg</Col>
+          </Row>
+        </Container>
         <Navbar score={this.state.count} top={this.state.topScore}/>
         <Header/>
         <CardContainer updateCurrentScore={this.updateCurrentScore} updateTopScore={this.updateTopScore}/>
-        {/* <img src={require('../src/img/1.jpg')}/> */}
       </div>
     );
   }

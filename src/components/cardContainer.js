@@ -28,39 +28,26 @@ class CardContainer extends Component {
             this.state.dogs.forEach(dog => {  
                 if (dog.id === id) {
                     this.setState({selectedDogs: [...this.state.selectedDogs, dog]});
-                    console.log(this.state.selectedDogs);
                     this.updateScore();
                 }
             })  
         }
-        // SHUFFLE THE Dogs
         this.setState({ dogs: shuffle(this.state.dogs)});
-        console.log("Shuffling Dogs");
 
     }
 
-    // function to update the current game's score
     updateScore = () => {
-        // set the new score
         this.setState({score: this.state.score + 1});
-        // update the parent component's display
         this.props.updateCurrentScore(this.state.score);
-        console.log("Score: " + this.state.score);
     }
 
-    // function to end the game
     endGame = () => {
-        console.log("End!");
-        // push the current game score as the new top score 
         this.props.updateTopScore(this.state.score);
-        // set the score back to 1 and the selected array to empty 
         this.setState({score: 1, selectedDogs: []});
-        // update the current score to 0
         this.props.updateCurrentScore(0);
     }
 
     render() {
-        console.log('here',Dogs)
         return (
             <div className="container" id="card-container">
                 <div className="row">
