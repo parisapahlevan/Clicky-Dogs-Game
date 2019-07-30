@@ -7,4 +7,4 @@
 ## Built with
 * [Reactjs](https://reactjs.org) - A JavaScript library for building user interfaces
 * [React Bootstrap](https://react-bootstrap.github.io)- front-end framework
-* [Heroku](https://www.heroku.com)
+* [Heroku](https://www.heroku.com) - cloud application platform
